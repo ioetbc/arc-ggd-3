@@ -8,6 +8,49 @@ import { seven } from "./images/7.js";
 import { eight } from "./images/8.js";
 import { nine } from "./images/9.js";
 
+const mapGridPosition = (image) => {
+  let position = { x: 0, y: 0 };
+  switch (image.grid) {
+    case 1:
+      position.x = -window.innerWidth + image.offsetX;
+      position.y = -window.innerHeight + image.offsetY;
+      break;
+    case 2:
+      position.x = image.offsetX;
+      position.y = -window.innerHeight + image.offsetY;
+      break;
+    case 3:
+      position.x = window.innerWidth + image.offsetX;
+      position.y = -window.innerHeight + image.offsetY;
+      break;
+    case 4:
+      position.x = -window.innerWidth + image.offsetX;
+      position.y = image.offsetY;
+      break;
+    case 5:
+      position.x = image.offsetX;
+      position.y = image.offsetY;
+      break;
+    case 6:
+      position.x = window.innerWidth + image.offsetX;
+      position.y = image.offsetY;
+      break;
+    case 7:
+      position.x = -window.innerWidth + image.offsetX;
+      position.y = window.innerHeight + image.offsetY;
+      break;
+    case 8:
+      position.x = image.offsetX;
+      position.y = window.innerHeight + image.offsetY;
+      break;
+    case 9:
+      position.x = window.innerWidth + image.offsetX;
+      position.y = window.innerHeight + image.offsetY;
+      break;
+  }
+  return position;
+};
+
 function NewCanvas() {
   const c = document.querySelector("canvas");
   var ctx = c.getContext("2d");
@@ -42,7 +85,6 @@ const images = [
 var imagesOK = 0;
 var imgs = [];
 loadAllImages(start);
-
 window.addEventListener(
   "wheel",
   (e) => {
@@ -68,7 +110,12 @@ window.addEventListener(
       hasReachedRightEdgeOfCanvas ||
       hasReachedLeftEdgeOfCanvas
     ) {
-      return;
+      if (hasReachedRightEdgeOfCanvas || hasReachedLeftEdgeOfCanvas) {
+        User.x -= parseInt(e.deltaX, 10);
+      }
+      if (hasReachedTopOfCanvas || hasReachedBottomOfCanvas) {
+        User.y -= parseInt(e.deltaY, 10);
+      }
     } else {
       User.x += parseInt(e.deltaX, 10);
       User.y += parseInt(e.deltaY, 10);
@@ -99,12 +146,19 @@ function loadAllImages(callback) {
 
 function start() {
   for (var i = 0; i < images.length; i++) {
+    const { x, y } = mapGridPosition(images[i]);
+
     canvas.ctx.drawImage(
       imgs[i],
-      ((User.x + images[i].offsetX) * images[i].parallex) / 2,
-      ((User.y + images[i].offsetY) * images[i].parallex) / 2,
+      ((User.x + x) * images[i].parallex) / 2,
+      ((User.y + y) * images[i].parallex) / 2,
       200,
       250
     );
   }
 }
+
+// TODO
+// Add in map
+// Use websocket to show other user cursors
+// Make the edges not sticky
