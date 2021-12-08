@@ -63,7 +63,7 @@ function NewCanvas() {
 
 function ClearCvs(cvs) {
   cvs.ctx.fillRect(0, 0, cvs.width, cvs.height);
-  cvs.ctx.fillStyle = "red";
+  cvs.ctx.fillStyle = "white";
 }
 
 const canvas = NewCanvas();
