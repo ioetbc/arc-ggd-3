@@ -1,12 +1,12 @@
-import { one } from "./images/1.js";
-import { two } from "./images/2.js";
-import { three } from "./images/3.js";
-import { four } from "./images/4.js";
-import { five } from "./images/5.js";
-import { six } from "./images/6.js";
-import { seven } from "./images/7.js";
-import { eight } from "./images/8.js";
-import { nine } from "./images/9.js";
+import { one } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/1.js";
+import { two } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/2.js";
+import { three } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/3.js";
+import { four } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/4.js";
+import { five } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/5.js";
+import { six } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/6.js";
+import { seven } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/7.js";
+import { eight } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/8.js";
+import { nine } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/9.js";
 
 const mapGridPosition = (image) => {
   let position = { x: 0, y: 0 };
@@ -131,6 +131,7 @@ function loadAllImages(callback) {
   for (var i = 0; i < images.length; i++) {
     var img = new Image();
     imgs.push(img);
+    img.crossOrigin = "Anonymous";
     img.onload = function () {
       imagesOK++;
       if (imagesOK >= images.length) {
