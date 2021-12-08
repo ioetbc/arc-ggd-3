@@ -152,8 +152,8 @@ function start() {
       imgs[i],
       ((User.x + x) * images[i].parallex) / 2,
       ((User.y + y) * images[i].parallex) / 2,
-      200,
-      250
+      images[i].width,
+      images[i].height
     );
   }
 }

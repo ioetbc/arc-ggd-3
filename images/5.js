@@ -5,6 +5,8 @@ export const five = [
     offsetX: 0,
     offsetY: 50,
     parallex: 2,
+    width: 200,
+    height: 700,
   },
   {
     url: "https://picsum.photos/id/443/200/300",
@@ -12,6 +14,8 @@ export const five = [
     offsetX: 200,
     offsetY: 100,
     parallex: 3,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/448/200/300",
@@ -19,6 +23,8 @@ export const five = [
     offsetX: 400,
     offsetY: 200,
     parallex: 4,
+    width: 200,
+    height: 4000,
   },
   {
     url: "https://picsum.photos/id/441/200/300",
@@ -26,6 +32,8 @@ export const five = [
     offsetX: 350,
     offsetY: 100,
     parallex: 2,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/442/200/300",
@@ -33,6 +41,8 @@ export const five = [
     offsetX: 500,
     offsetY: 50,
     parallex: 3,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/443/200/300",
@@ -40,6 +50,8 @@ export const five = [
     offsetX: 500,
     offsetY: 100,
     parallex: 4,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/447/200/300",
@@ -47,6 +59,8 @@ export const five = [
     offsetX: 50,
     offsetY: 50,
     parallex: 2,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/443/200/300",
@@ -54,6 +68,8 @@ export const five = [
     offsetX: 100,
     offsetY: 200,
     parallex: 3,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/448/200/300",
@@ -61,6 +77,8 @@ export const five = [
     offsetX: 200,
     offsetY: 300,
     parallex: 4,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/441/200/300",
@@ -68,6 +86,8 @@ export const five = [
     offsetX: 300,
     offsetY: 150,
     parallex: 2,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/442/200/300",
@@ -75,6 +95,8 @@ export const five = [
     offsetX: 400,
     offsetY: 100,
     parallex: 3,
+    width: 200,
+    height: 300,
   },
   {
     url: "https://picsum.photos/id/443/200/300",
@@ -82,5 +104,7 @@ export const five = [
     offsetX: 400,
     offsetY: 100,
     parallex: 4,
+    width: 200,
+    height: 300,
   },
 ];

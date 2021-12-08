@@ -1,0 +1,22 @@
+{
+  "name": "arc-ggd-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioetbc/arc-ggd-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ioetbc/arc-ggd-3/issues"
+  },
+  "homepage": "https://github.com/ioetbc/arc-ggd-3#readme",
+  "dependencies": {
+    "glitch-canvas": "^1.1.9"
+  }
+}
