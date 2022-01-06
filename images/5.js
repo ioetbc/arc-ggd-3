@@ -24,7 +24,7 @@ export const five = [
     offsetY: 200,
     parallex: 4,
     width: 200,
-    height: 4000,
+    height: 400,
   },
   {
     url: "https://picsum.photos/id/441/200/300",

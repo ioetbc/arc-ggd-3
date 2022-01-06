@@ -1,12 +1,22 @@
-import { one } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/1.js";
-import { two } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/2.js";
-import { three } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/3.js";
-import { four } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/4.js";
-import { five } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/5.js";
-import { six } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/6.js";
-import { seven } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/7.js";
-import { eight } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/8.js";
-import { nine } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/9.js";
+// import { one } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/1.js";
+// import { two } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/2.js";
+// import { three } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/3.js";
+// import { four } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/4.js";
+// import { five } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/5.js";
+// import { six } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/6.js";
+// import { seven } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/7.js";
+// import { eight } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/8.js";
+// import { nine } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/9.js";
+
+import { one } from "./images/1.js";
+import { two } from "./images/2.js";
+import { three } from "./images/3.js";
+import { four } from "./images/4.js";
+import { five } from "./images/5.js";
+import { six } from "./images/6.js";
+import { seven } from "./images/7.js";
+import { eight } from "./images/8.js";
+import { nine } from "./images/9.js";
 
 const mapGridPosition = (image) => {
   let position = { x: 0, y: 0 };
@@ -81,6 +91,7 @@ const images = [
   ...eight,
   ...nine,
 ];
+let stopScrolling = false
 
 var imagesOK = 0;
 var imgs = [];
@@ -95,31 +106,45 @@ window.addEventListener(
     const canvasPaddingY = window.innerHeight / 4;
     const canvasPaddingX = 200;
 
-    const hasReachedTopOfCanvas =
+    let hasReachedTopOfCanvas = false
+    let hasReachedBottomOfCanvas = false
+    let hasReachedRightEdgeOfCanvas = false
+    let hasReachedLeftEdgeOfCanvas = false
+
+    hasReachedTopOfCanvas =
       User.y > window.innerHeight + canvasPaddingY && isScrollingUp;
-    const hasReachedBottomOfCanvas =
+    hasReachedBottomOfCanvas =
       User.y < -window.innerHeight + -canvasPaddingY && isScrollingDown;
-    const hasReachedRightEdgeOfCanvas =
+    hasReachedRightEdgeOfCanvas =
       User.x > window.innerWidth + canvasPaddingX && isScrollingRight;
-    const hasReachedLeftEdgeOfCanvas =
+    hasReachedLeftEdgeOfCanvas =
       User.x < -window.innerWidth + -canvasPaddingX && isScrollingLeft;
 
-    if (
-      hasReachedTopOfCanvas ||
-      hasReachedBottomOfCanvas ||
-      hasReachedRightEdgeOfCanvas ||
-      hasReachedLeftEdgeOfCanvas
-    ) {
-      if (hasReachedRightEdgeOfCanvas || hasReachedLeftEdgeOfCanvas) {
-        User.x -= parseInt(e.deltaX, 10);
-      }
-      if (hasReachedTopOfCanvas || hasReachedBottomOfCanvas) {
-        User.y -= parseInt(e.deltaY, 10);
-      }
-    } else {
-      User.x += parseInt(e.deltaX, 10);
-      User.y += parseInt(e.deltaY, 10);
-    }
+
+    // if (
+    //   hasReachedTopOfCanvas ||
+    //   hasReachedBottomOfCanvas ||
+    //   hasReachedRightEdgeOfCanvas ||
+    //   hasReachedLeftEdgeOfCanvas
+    // ) {
+    //   if (hasReachedRightEdgeOfCanvas || hasReachedLeftEdgeOfCanvas) {
+    //     if (!stopScrolling)
+    //     User.x -= parseInt(e.deltaX, 10);
+    //   }
+    //   if (hasReachedTopOfCanvas || hasReachedBottomOfCanvas) {
+    //     User.y += parseInt(e.deltaY, 10) / 10;
+    //     if (User.y > window.innerHeight + 400 && isScrollingUp) {
+    //       stopScrolling = true
+    //       return
+    //     }
+    //   }
+    // } else {
+    //   if (!stopScrolling) {
+
+        User.x += parseInt(e.deltaX, 10);
+        User.y += parseInt(e.deltaY, 10);
+      // }
+    // }
 
     ClearCvs(canvas);
     start();
@@ -132,6 +157,7 @@ function loadAllImages(callback) {
     var img = new Image();
     imgs.push(img);
     img.crossOrigin = "Anonymous";
+    img.onclick = () => console.log('clicked')
     img.onload = function () {
       imagesOK++;
       if (imagesOK >= images.length) {
@@ -142,6 +168,19 @@ function loadAllImages(callback) {
       alert("image load failed");
     };
     img.src = images[i].url;
+  }
+}
+
+canvas.addEventListener("mousedown", clicked, false);
+
+
+function clicked(e){
+  e.preventDefault();
+  var x = e.clientX;
+  var y = e.clientY;
+
+  if(((User.x + x)) / 2 && ((User.y + y)) / 2){ //780 = 580+(200) <- image width
+      alert('Hello');
   }
 }
 
