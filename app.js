@@ -34,7 +34,7 @@ const mapGridPosition = (image) => {
       position.y = -window.innerHeight + image.offsetY;
       break;
     case 4:
-      position.x = -window.innerWidth + image.offsetX;
+      position.x = -1.2*window.innerWidth + image.offsetX;
       position.y = image.offsetY;
       break;
     case 5:
@@ -42,7 +42,7 @@ const mapGridPosition = (image) => {
       position.y = image.offsetY;
       break;
     case 6:
-      position.x = window.innerWidth + image.offsetX;
+      position.x = 1.6*window.innerWidth + image.offsetX;
       position.y = image.offsetY;
       break;
     case 7:
@@ -87,9 +87,9 @@ const images = [
   ...four,
   ...five,
   ...six,
-  ...seven,
-  ...eight,
-  ...nine,
+  //...seven,
+  //...eight,
+  //...nine,
 ];
 let stopScrolling = false
 
