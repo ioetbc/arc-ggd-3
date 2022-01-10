@@ -87,9 +87,9 @@ const images = [
   ...four,
   ...five,
   ...six,
-  //...seven,
-  //...eight,
-  //...nine,
+  ...seven,
+  ...eight,
+  ...nine,
 ];
 let stopScrolling = false
 
