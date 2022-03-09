@@ -82,14 +82,14 @@ let User = { x: 0, y: 0 };
 
 const images = [
   ...one,
-  ...two,
-  ...three,
-  ...four,
-  ...five,
-  ...six,
-  ...seven,
-  ...eight,
-  ...nine,
+  // ...two,
+  // ...three,
+  // ...four,
+  // ...five,
+  // ...six,
+  // ...seven,
+  // ...eight,
+  // ...nine,
 ];
 let stopScrolling = false
 
@@ -180,14 +180,14 @@ function clicked(e){
   var y = e.clientY;
 
   if(((User.x + x)) / 2 && ((User.y + y)) / 2){ //780 = 580+(200) <- image width
-      alert('Hello');
+      console.log(User);
   }
 }
 
 function start() {
   for (var i = 0; i < images.length; i++) {
     const { x, y } = mapGridPosition(images[i]);
-
+    User.id = images[i].id
     canvas.ctx.drawImage(
       imgs[i],
       ((User.x + x) * images[i].parallex) / 2,
