@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
       body {
         margin: 0;
         padding: 0;
         position: fixed;
       }
-      canvas {
-          background: transparent;
-          position: fixed;
+      body {
+        overscroll-behavior-x: none;
       }
-    .bg-video {
-      display: fixed;
-    }
-  </style> 
-</head>
-<body>
+      canvas {
+        background: transparent;
+        position: fixed;
+      }
+      .bg-video {
+        display: fixed;
+      }
+    </style>
+  </head>
+  <body>
     <canvas></canvas>
     <script src="./app.js" crossorigin="*" type="module"></script>
-</body>
+  </body>
 </html>

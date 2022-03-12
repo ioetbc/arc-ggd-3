@@ -2,7 +2,7 @@ import shit from "./Image files/5/merz.png";
 import shit2 from "./Image files/5/affitasi1.png";
 export const one = [
   {
-    id: 'ya',
+    id: "ya",
     url: shit,
     grid: 5,
     offsetX: 700,
@@ -12,7 +12,7 @@ export const one = [
     height: 134,
   },
   {
-    id: 'yssssa',
+    id: "yssssa",
     url: shit2,
     grid: 5,
     offsetX: 200,

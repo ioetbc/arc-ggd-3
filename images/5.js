@@ -1,18 +1,41 @@
+import backg2 from "./Image files/5/backg2.jpg";
+import merz from "./Image files/5/merz.png";
+import verboten from "./Image files/5/verboten.png";
+import tv from "./Image files/5/tv.png";
+import tz from "./Image files/5/tz.png";
+import redwhite from "./Image files/5/redwhite.png";
+import flake1 from "./Image files/5/flake1.png";
+import reduziert from "./Image files/5/reduziert.png";
+import solar from "./Image files/5/solar.png";
+import cba from "./Image files/5/cba.png";
+import affitasi2 from "./Image files/5/affitasi2.png";
+import flake2 from "./Image files/5/flake2.png";
+import plank from "./Image files/5/plank.png";
+import wax from "./Image files/5/wax.png";
+import greengraf from "./Image files/5/greengraf.png";
+import samstag from "./Image files/5/samstag.png";
+import affitasi1 from "./Image files/5/affitasi1.png";
+import montag from "./Image files/5/montag.png";
+import yellowgraf from "./Image files/5/yellowgraf.png";
+import purplegraff from "./Image files/5/purplegraff.png";
+import redgraff from "./Image files/5/redgraff.png";
+import flake3 from "./Image files/5/flake3.png";
+
 export const five = [
   {
-    url: "images/Image files/5/backg2.jpg",
-   //url: "https://picsum.photos/id/443/200/300", 
+    id: "backg2",
+    url: backg2,
     grid: 5,
     offsetX: -500,
     offsetY: -500,
     parallex: 1.8,
-    //10492,7869
     width: 3357,
     height: 2518,
   },
 
   {
-    url: "images/Image files/5/merz.png",
+    id: "merz",
+    url: merz,
     grid: 5,
     offsetX: 700,
     offsetY: 1050,
@@ -21,7 +44,8 @@ export const five = [
     height: 134,
   },
   {
-    url: "images/Image files/5/verboten.png",
+    id: "verboten",
+    url: verboten,
     grid: 5,
     offsetX: -200,
     offsetY: 300,
@@ -30,7 +54,8 @@ export const five = [
     height: 702,
   },
   {
-    url: "images/Image files/5/tv.png",
+    id: "tv",
+    url: tv,
     grid: 5,
     offsetX: 750,
     offsetY: 600,
@@ -39,7 +64,8 @@ export const five = [
     height: 111,
   },
   {
-    url: "images/Image files/5/tz.png",
+    id: "tz",
+    url: tz,
     grid: 5,
     offsetX: 800,
     offsetY: 700,
@@ -48,7 +74,8 @@ export const five = [
     height: 302,
   },
   {
-    url: "images/Image files/5/redwhite.png",
+    id: "redwhite",
+    url: redwhite,
     grid: 5,
     offsetX: 500,
     offsetY: 100,
@@ -57,7 +84,8 @@ export const five = [
     height: 196,
   },
   {
-    url: "images/Image files/5/flake1.png",
+    id: "flake1",
+    url: flake1,
     grid: 5,
     offsetX: 0,
     offsetY: 100,
@@ -66,7 +94,8 @@ export const five = [
     height: 557,
   },
   {
-    url: "images/Image files/5/reduziert.png",
+    id: "reduziert",
+    url: reduziert,
     grid: 5,
     offsetX: 1050,
     offsetY: 100,
@@ -75,7 +104,8 @@ export const five = [
     height: 200,
   },
   {
-    url: "images/Image files/5/solar.png",
+    id: "solar",
+    url: solar,
     grid: 5,
     offsetX: 900,
     offsetY: 100,
@@ -84,7 +114,8 @@ export const five = [
     height: 772,
   },
   {
-    url: "images/Image files/5/cba.png",
+    id: "cba",
+    url: cba,
     grid: 5,
     offsetX: 400,
     offsetY: 950,
@@ -93,7 +124,8 @@ export const five = [
     height: 463,
   },
   {
-    url: "images/Image files/5/affitasi2.png",
+    id: "affitasi2",
+    url: affitasi2,
     grid: 5,
     offsetX: 1450,
     offsetY: 500,
@@ -102,7 +134,8 @@ export const five = [
     height: 394,
   },
   {
-    url: "images/Image files/5/flake2.png",
+    id: "flake2",
+    url: flake2,
     grid: 5,
     offsetX: 300,
     offsetY: 500,
@@ -111,7 +144,8 @@ export const five = [
     height: 357,
   },
   {
-    url: "images/Image files/5/plank.png",
+    id: "plank",
+    url: plank,
     grid: 5,
     offsetX: -100,
     offsetY: 50,
@@ -120,7 +154,8 @@ export const five = [
     height: 880,
   },
   {
-    url: "images/Image files/5/wax.png",
+    id: "wax",
+    url: wax,
     grid: 5,
     offsetX: 300,
     offsetY: 300,
@@ -129,7 +164,8 @@ export const five = [
     height: 613,
   },
   {
-    url: "images/Image files/5/greengraf.png",
+    id: "greengraf",
+    url: greengraf,
     grid: 5,
     offsetX: -100,
     offsetY: -400,
@@ -138,7 +174,8 @@ export const five = [
     height: 1276,
   },
   {
-    url: "images/Image files/5/samstag.png",
+    id: "samstag",
+    url: samstag,
     grid: 5,
     offsetX: 1400,
     offsetY: 890,
@@ -147,7 +184,8 @@ export const five = [
     height: 221,
   },
   {
-    url: "images/Image files/5/affitasi1.png",
+    id: "affitasi1",
+    url: affitasi1,
     grid: 5,
     offsetX: -150,
     offsetY: 700,
@@ -156,7 +194,8 @@ export const five = [
     height: 381,
   },
   {
-    url: "images/Image files/5/montag.png",
+    id: "montag",
+    url: montag,
     grid: 5,
     offsetX: -50,
     offsetY: 870,
@@ -165,7 +204,8 @@ export const five = [
     height: 221,
   },
   {
-    url: "images/Image files/5/yellowgraf.png",
+    id: "yellowgraf",
+    url: yellowgraf,
     grid: 5,
     offsetX: -320,
     offsetY: 800,
@@ -175,7 +215,8 @@ export const five = [
   },
 
   {
-    url: "images/Image files/5/purplegraff.png",
+    id: "purplegraff",
+    url: purplegraff,
     grid: 5,
     offsetX: 920,
     offsetY: 600,
@@ -184,7 +225,8 @@ export const five = [
     height: 978,
   },
   {
-    url: "images/Image files/5/redgraff.png",
+    id: "redgraff",
+    url: redgraff,
     grid: 5,
     offsetX: 1120,
     offsetY: 630,
@@ -193,7 +235,8 @@ export const five = [
     height: 398,
   },
   {
-    url: "images/Image files/5/flake3.png",
+    id: "flake3",
+    url: flake3,
     grid: 5,
     offsetX: 940,
     offsetY: 620,
@@ -201,7 +244,4 @@ export const five = [
     width: 552,
     height: 442,
   },
-  
- 
- 
 ];

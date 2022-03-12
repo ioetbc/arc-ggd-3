@@ -1,13 +1,3 @@
-// import { one } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/1.js";
-// import { two } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/2.js";
-// import { three } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/3.js";
-// import { four } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/4.js";
-// import { five } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/5.js";
-// import { six } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/6.js";
-// import { seven } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/7.js";
-// import { eight } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/8.js";
-// import { nine } from "https://combinatronics.com/ioetbc/arc-ggd-3/main/images/9.js";
-
 import { one } from "./images/1.js";
 import { two } from "./images/2.js";
 import { three } from "./images/3.js";
@@ -34,7 +24,7 @@ const mapGridPosition = (image) => {
       position.y = -window.innerHeight + image.offsetY;
       break;
     case 4:
-      position.x = -1.2*window.innerWidth + image.offsetX;
+      position.x = -1.2 * window.innerWidth + image.offsetX;
       position.y = image.offsetY;
       break;
     case 5:
@@ -42,7 +32,7 @@ const mapGridPosition = (image) => {
       position.y = image.offsetY;
       break;
     case 6:
-      position.x = 1.6*window.innerWidth + image.offsetX;
+      position.x = 1.6 * window.innerWidth + image.offsetX;
       position.y = image.offsetY;
       break;
     case 7:
@@ -82,20 +72,22 @@ let User = { x: 0, y: 0 };
 
 const images = [
   ...one,
-  // ...two,
-  // ...three,
-  // ...four,
-  // ...five,
-  // ...six,
-  // ...seven,
-  // ...eight,
-  // ...nine,
+  ...two,
+  ...three,
+  ...four,
+  ...five,
+  ...six,
+  ...seven,
+  ...eight,
+  ...nine,
 ];
-let stopScrolling = false
+let stopScrolling = false;
 
 var imagesOK = 0;
 var imgs = [];
+
 loadAllImages(start);
+
 window.addEventListener(
   "wheel",
   (e) => {
@@ -106,10 +98,10 @@ window.addEventListener(
     const canvasPaddingY = window.innerHeight / 4;
     const canvasPaddingX = 200;
 
-    let hasReachedTopOfCanvas = false
-    let hasReachedBottomOfCanvas = false
-    let hasReachedRightEdgeOfCanvas = false
-    let hasReachedLeftEdgeOfCanvas = false
+    let hasReachedTopOfCanvas = false;
+    let hasReachedBottomOfCanvas = false;
+    let hasReachedRightEdgeOfCanvas = false;
+    let hasReachedLeftEdgeOfCanvas = false;
 
     hasReachedTopOfCanvas =
       User.y > window.innerHeight + canvasPaddingY && isScrollingUp;
@@ -119,7 +111,6 @@ window.addEventListener(
       User.x > window.innerWidth + canvasPaddingX && isScrollingRight;
     hasReachedLeftEdgeOfCanvas =
       User.x < -window.innerWidth + -canvasPaddingX && isScrollingLeft;
-
 
     // if (
     //   hasReachedTopOfCanvas ||
@@ -141,9 +132,9 @@ window.addEventListener(
     // } else {
     //   if (!stopScrolling) {
 
-        User.x += parseInt(e.deltaX, 10);
-        User.y += parseInt(e.deltaY, 10);
-      // }
+    User.x += parseInt(e.deltaX, 10);
+    User.y += parseInt(e.deltaY, 10);
+    // }
     // }
 
     ClearCvs(canvas);
@@ -156,8 +147,6 @@ function loadAllImages(callback) {
   for (var i = 0; i < images.length; i++) {
     var img = new Image();
     imgs.push(img);
-    img.crossOrigin = "Anonymous";
-    img.onclick = () => console.log('clicked')
     img.onload = function () {
       imagesOK++;
       if (imagesOK >= images.length) {
@@ -173,21 +162,18 @@ function loadAllImages(callback) {
 
 canvas.addEventListener("mousedown", clicked, false);
 
-
-function clicked(e){
+function clicked(e) {
   e.preventDefault();
   var x = e.clientX;
   var y = e.clientY;
-
-  if(((User.x + x)) / 2 && ((User.y + y)) / 2){ //780 = 580+(200) <- image width
-      console.log(User);
+  if ((User.x + x) / 2 && (User.y + y) / 2) {
   }
 }
 
 function start() {
   for (var i = 0; i < images.length; i++) {
     const { x, y } = mapGridPosition(images[i]);
-    User.id = images[i].id
+    User.id = images[i].id;
     canvas.ctx.drawImage(
       imgs[i],
       ((User.x + x) * images[i].parallex) / 2,

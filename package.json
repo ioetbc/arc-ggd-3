@@ -4,7 +4,7 @@
   "description": "",
   "source": "index.html",
   "scripts": {
-    "start": "parcel",
+    "dev": "parcel",
     "build": "parcel build"
   },
   "repository": {
@@ -17,8 +17,7 @@
     "url": "https://github.com/ioetbc/arc-ggd-3/issues"
   },
   "homepage": "https://github.com/ioetbc/arc-ggd-3#readme",
-  "dependencies": {
-    "glitch-canvas": "^1.1.9",
-    "parcel": "^2.2.1"
+  "devDependencies": {
+    "parcel": "^2.3.2"
   }
 }
