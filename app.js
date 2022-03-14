@@ -71,15 +71,15 @@ const canvas = NewCanvas();
 let User = { x: 0, y: 0 };
 
 const images = [
-  ...one,
-  ...two,
-  ...three,
-  ...four,
+  // ...one,
+  // ...two,
+  // ...three,
+  // ...four,
   ...five,
-  ...six,
-  ...seven,
-  ...eight,
-  ...nine,
+  // ...six,
+  // ...seven,
+  // ...eight,
+  // ...nine,
 ];
 let stopScrolling = false;
 
@@ -91,26 +91,26 @@ loadAllImages(start);
 window.addEventListener(
   "wheel",
   (e) => {
-    const isScrollingUp = e.wheelDeltaY < 0;
-    const isScrollingDown = e.wheelDeltaY > 0;
-    const isScrollingRight = e.wheelDeltaX < 0;
-    const isScrollingLeft = e.wheelDeltaX > 0;
-    const canvasPaddingY = window.innerHeight / 4;
-    const canvasPaddingX = 200;
+    // const isScrollingUp = e.wheelDeltaY < 0;
+    // const isScrollingDown = e.wheelDeltaY > 0;
+    // const isScrollingRight = e.wheelDeltaX < 0;
+    // const isScrollingLeft = e.wheelDeltaX > 0;
+    // const canvasPaddingY = window.innerHeight / 4;
+    // const canvasPaddingX = 200;
 
-    let hasReachedTopOfCanvas = false;
-    let hasReachedBottomOfCanvas = false;
-    let hasReachedRightEdgeOfCanvas = false;
-    let hasReachedLeftEdgeOfCanvas = false;
+    // let hasReachedTopOfCanvas = false;
+    // let hasReachedBottomOfCanvas = false;
+    // let hasReachedRightEdgeOfCanvas = false;
+    // let hasReachedLeftEdgeOfCanvas = false;
 
-    hasReachedTopOfCanvas =
-      User.y > window.innerHeight + canvasPaddingY && isScrollingUp;
-    hasReachedBottomOfCanvas =
-      User.y < -window.innerHeight + -canvasPaddingY && isScrollingDown;
-    hasReachedRightEdgeOfCanvas =
-      User.x > window.innerWidth + canvasPaddingX && isScrollingRight;
-    hasReachedLeftEdgeOfCanvas =
-      User.x < -window.innerWidth + -canvasPaddingX && isScrollingLeft;
+    // hasReachedTopOfCanvas =
+    //   User.y > window.innerHeight + canvasPaddingY && isScrollingUp;
+    // hasReachedBottomOfCanvas =
+    //   User.y < -window.innerHeight + -canvasPaddingY && isScrollingDown;
+    // hasReachedRightEdgeOfCanvas =
+    //   User.x > window.innerWidth + canvasPaddingX && isScrollingRight;
+    // hasReachedLeftEdgeOfCanvas =
+    //   User.x < -window.innerWidth + -canvasPaddingX && isScrollingLeft;
 
     // if (
     //   hasReachedTopOfCanvas ||
@@ -178,6 +178,8 @@ function start() {
       imgs[i],
       ((User.x + x) * images[i].parallex) / 2,
       ((User.y + y) * images[i].parallex) / 2,
+      // User.x + x,
+      // User.y + y,
       images[i].width,
       images[i].height
     );

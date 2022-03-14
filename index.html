@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <meta charset="UTF-8" />
     <title>title</title>
     <style>
+      html,
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
         margin: 0;
         padding: 0;
@@ -20,9 +30,14 @@
         display: fixed;
       }
     </style>
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
+    />
   </head>
   <body>
     <canvas></canvas>
-    <script src="./app.js" crossorigin="*" type="module"></script>
+    <!-- <script src="./app.js" crossorigin="*" type="module"></script> -->
+    <script src="./app-mobile-2.js"></script>
   </body>
 </html>
