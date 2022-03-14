@@ -1,11 +1,13 @@
 let bubbles = [];
 let unicorn;
+let vx = 0;
+let vy = 0;
 
 let kittens = [
   {
     id: 1,
-    src: "./images/image_files/5/montag.png?dwd=23",
-    // src: "https://picsum.photos/200/300",
+    // src: "./images/image_files/5/montag.png?dwd=23",
+    src: "https://picsum.photos/200/300",
     width: 100,
     height: 400,
     parallex: 2.2,
@@ -88,6 +90,8 @@ function draw() {
   for (let b of bubbles) {
     // b.move();
     b.show();
+    // b.x *= 0.95;
+    // b.y *= 0.95;
     //   let overlapping = false;
     //   // if (b.contains(mouseX, mouseY)) {
     //   //   b.changeColor();
@@ -127,8 +131,8 @@ class Bubble {
   }
 
   move() {
-    this.x = this.x + random(-5, 5);
-    this.y = this.y + random(-5, 5);
+    // vx *= 0.95;
+    // vy *= 0.95;
   }
 
   show() {
@@ -137,6 +141,12 @@ class Bubble {
     // fill(this.brightness, 125);
     // ellipse(this.x, this.y, this.radius * 2);
     image(this.kitten, this.x, this.y, this.width, this.height);
+
+    this.x += vx;
+    this.y += vy;
+
+    vx *= 0.95;
+    vy *= 0.95;
   }
 
   contains(mouseX, mouseY) {
@@ -166,7 +176,7 @@ class Bubble {
   }
   swiped(event) {
     // Apply the velocity of the swipe as a force
-    this.x += event.velocityX * 10 * this.parallex;
-    this.y += event.velocityY * 10 * this.parallex;
+    vx += event.velocityX * 10 * this.parallex;
+    vy += event.velocityY * 10 * this.parallex;
   }
 }
