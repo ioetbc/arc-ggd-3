@@ -2,53 +2,77 @@ let bubbles = [];
 let unicorn;
 
 let kittens = [
-  "https://images.unsplash.com/photo-1647164926447-8eaeed1bedc1",
-  "https://images.unsplash.com/photo-1643952565578-a39d383f1dc9",
+  {
+    id: 1,
+    src: "./images/image_files/5/montag.png?dwd=23",
+    // src: "https://picsum.photos/200/300",
+    width: 100,
+    height: 400,
+    parallex: 2.2,
+    x: 100,
+    y: 200,
+  },
+  {
+    id: 2,
+    src: "https://picsum.photos/200/300?hell=eki",
+    width: 100,
+    height: 400,
+    parallex: 1.5,
+    x: 100,
+    y: 100,
+  },
 ];
+
 function preload() {
   for (let i = 0; i < 2; i++) {
-    kittens[i] = loadImage(kittens[i]);
+    kittens[i].src = loadImage(kittens[i].src, (img) =>
+      console.log("img loaded", img)
+    );
   }
 }
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  // bubble1 = new Bubble(200, 200, 50);
-  // bubble2 = new Bubble(300, 200, 50);
-  for (let i = 0; i < 20; i++) {
-    let x = random(width);
-    let y = random(height);
-    let r = random(10, 50);
-    let kitten = random(kittens);
-    let bubble = new Bubble(x, y, 100, kitten);
+
+  for (let i = 0; i < kittens.length; i++) {
+    const { x, y, width, height, src, parallex, id } = kittens[i];
+    // let x = kittens[i].x;
+    // let y = kittens[i].y;
+    // let width = kittens[i].width;
+    // let height = kittens[i].height;
+    // let kitten = kittens[i].src;
+    // let parallex = kittens[i].parallex;
+    let bubble = new Bubble(x, y, width, height, src, parallex, id);
     bubbles.push(bubble);
   }
   let unicornKitten = random(kittens);
 
-  unicorn = new Bubble(400, 200, 10, unicornKitten);
+  unicorn = new Bubble(
+    400,
+    200,
+    100,
+    100,
+    unicornKitten.src,
+    unicornKitten.parallex,
+    unicornKitten.id
+  );
 }
 
 window.addEventListener("wheel", (e) => {
   for (let b of bubbles) {
-    b.x += e.deltaX / 10;
-    b.y += e.deltaY / 10;
+    b.x += (e.deltaX / 10) * b.parallex;
+    b.y += (e.deltaY / 10) * b.parallex;
   }
 });
 
-// set options to prevent default behaviors for swipe, pinch, etc
-var options = {
-  preventDefault: true,
-};
-
 // document.body registers gestures anywhere on the page
-var hammer = new Hammer(document.body, options);
+const hammer = new Hammer(document.body, { preventDefault: true });
 hammer.get("pan").set({
   direction: Hammer.DIRECTION_ALL,
 });
 
 hammer.on("pan", (event) => {
   for (let b of bubbles) {
-    console.log("panning");
     b.swiped(event);
   }
 });
@@ -56,39 +80,31 @@ hammer.on("pan", (event) => {
 function draw() {
   background(0);
 
-  // if (bubble1.intersects(bubble2)) {
-  //   background(200, 0, 100);
-  // }
-
-  // bubble1.show();
-  // bubble2.show();
-  // bubble1.move();
-  // bubble2.move();
   unicorn.x = mouseX;
   unicorn.y = mouseY;
   unicorn.show();
   unicorn.move();
 
   for (let b of bubbles) {
-    b.move();
+    // b.move();
     b.show();
-    let overlapping = false;
-    // if (b.contains(mouseX, mouseY)) {
-    //   b.changeColor();
-    // }
-    for (let c of bubbles) {
-      if (b !== c && b.intersects(c)) {
-        overlapping = true;
-      }
-      // } else {
-      //   b.changeColor(0);
-      // }
-    }
-    if (overlapping) {
-      b.changeColor(255);
-    } else {
-      b.changeColor(0);
-    }
+    //   let overlapping = false;
+    //   // if (b.contains(mouseX, mouseY)) {
+    //   //   b.changeColor();
+    //   // }
+    //   for (let c of bubbles) {
+    //     if (b !== c && b.intersects(c)) {
+    //       overlapping = true;
+    //     }
+    //     // } else {
+    //     //   b.changeColor(0);
+    //     // }
+    //   }
+    //   if (overlapping) {
+    //     b.changeColor(255);
+    //   } else {
+    //     b.changeColor(0);
+    //   }
   }
 }
 
@@ -99,12 +115,15 @@ function mousePressed() {
 }
 
 class Bubble {
-  constructor(x, y, radius = 50, img) {
+  constructor(x, y, width, height, img, parallex, id) {
     this.x = x;
     this.y = y;
-    this.radius = radius;
+    this.width = width;
+    this.height = height;
     this.brightness = 0;
     this.kitten = img;
+    this.parallex = parallex;
+    this.id = id;
   }
 
   move() {
@@ -117,12 +136,12 @@ class Bubble {
     // strokeWeight(4);
     // fill(this.brightness, 125);
     // ellipse(this.x, this.y, this.radius * 2);
-    image(this.kitten, this.x, this.y, this.radius, this.radius);
+    image(this.kitten, this.x, this.y, this.width, this.height);
   }
 
   contains(mouseX, mouseY) {
     let distance = dist(mouseX, mouseY, this.x, this.y);
-    return distance < this.radius;
+    return distance < this.width;
   }
 
   changeColor(color) {
@@ -131,23 +150,23 @@ class Bubble {
 
   intersects(otherBubble) {
     let distance = dist(this.x, this.y, otherBubble.x, otherBubble.y);
-    return distance < this.radius + otherBubble.radius;
+    return distance < this.width + otherBubble.width;
   }
 
   clicked(mouseX, mouseY) {
     if (
       mouseX > this.x &&
-      mouseX < this.x + this.radius &&
+      mouseX < this.x + this.width &&
       mouseY > this.y &&
-      mouseY < this.y + this.radius
+      mouseY < this.y + this.height
     ) {
-      this.kitten = random(kittens);
+      console.log("image clickwed", this.id);
+      // this.kitten = random(kittens);
     }
   }
   swiped(event) {
-    console.log("event", event);
     // Apply the velocity of the swipe as a force
-    this.x += event.velocityX * 4;
-    this.y += event.velocityY * 4;
+    this.x += event.velocityX * 10 * this.parallex;
+    this.y += event.velocityY * 10 * this.parallex;
   }
 }

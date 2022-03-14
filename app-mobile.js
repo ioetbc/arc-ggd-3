@@ -27,7 +27,6 @@ function preload() {
     const hmm = { ...imagesToPreLoad[i], loaded };
 
     preLoadedImages.push(hmm);
-    console.log("dfwdw");
   }
 }
 
